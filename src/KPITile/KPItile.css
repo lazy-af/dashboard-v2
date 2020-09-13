@@ -1,0 +1,29 @@
+.tile-container {
+  /* // border: 1px solid black; */
+  width: 200px;
+  display: inline-block;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 20px;
+  position: relative;
+}
+
+.above-hr {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+p,
+h4 {
+  /* margin-right: 60px; */
+  padding-left: 10px;
+  text-align: left;
+}
+
+.icon {
+  width: 20px;
+  height: auto;
+  position: absolute;
+  right: 10px;
+  top: 11px;
+}

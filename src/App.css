@@ -1,0 +1,28 @@
+.body {
+  height: 100vh;
+  width: 100vw;
+}
+
+.sunburst-pos {
+  position: absolute;
+  top: 0;
+  right: 5%;
+}
+
+.btn-pos {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.pie-pos {
+  position: absolute;
+  top: 40%;
+  left: 2%;
+}
+
+.stackbar-pos {
+  position: absolute;
+  top: 47%;
+  left: 30%;
+}
