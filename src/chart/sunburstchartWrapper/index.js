@@ -1,11 +1,8 @@
-import SunBurstChartWrapper from './SunBurstChart.wrapper.jsx';
+import React from "react";
+import SunBurstChartWrapper from "./SunBurstChartWrapper";
 
-import React from 'react'
+const Sunburst = () => {
+  return <SunBurstChartWrapper width={300} height={300} />;
+};
 
-const SunBurstChart = () => {
-    return <SunBurstChartWrapper 
-    width={300}
-    height={300} />
-}
-
-export default SunBurstChart;
+export default Sunburst;

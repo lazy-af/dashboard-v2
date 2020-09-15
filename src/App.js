@@ -5,9 +5,9 @@ import StackBarChart from "./chart/stackbarchartWrapper";
 import MultiDropPhase from "./components/MultiDropPhase";
 import MultiDropLob from "./components/MultiDropLob";
 import MultiDropCap from "./components/MultiDropCap";
-import SunBurstChart from "./chart/sunburstchartWrapper";
 import MultiDropStu from "./components/MultiDropStu";
 import KPITile from "./KPITile/KPITile";
+import Sunburst from "./chart/SunBurstChartWrapper";
 
 function App(props) {
   // const url = "https://dashboard-8836f.firebaseio.com/data.json";
@@ -25,7 +25,7 @@ function App(props) {
           <MultiDropStu />
         </div>
 
-        <KPITile
+        {/* <KPITile
           phase="development"
           img="https://images.vexels.com/media/users/3/129234/isolated/preview/73970c892d748c7507db8e10d71535b0-apple-logo-icon-by-vexels.png"
         />
@@ -40,16 +40,16 @@ function App(props) {
         <KPITile
           phase="retired"
           img="https://images.vexels.com/media/users/3/129234/isolated/preview/73970c892d748c7507db8e10d71535b0-apple-logo-icon-by-vexels.png"
-        />
+        /> */}
       </div>
-      <div className="pie-pos">
+      {/* <div className="pie-pos">
         <PieChart />
-      </div>
-      <div className="stackbar-pos">
+      </div> */}
+      {/* <div className="stackbar-pos">
         <StackBarChart />
-      </div>
+      </div> */}
       <div className="sunburst-pos">
-        <SunBurstChart />
+        <Sunburst />
       </div>
     </div>
   );

@@ -3,7 +3,6 @@ import D3SunBurstChart from "./D3SunBurstChart";
 import Axios from "axios";
 import { json } from "d3";
 import { SunBurstUtility } from "./Utility";
-import "./SunBurstChartWrapper.css";
 import { connect } from "react-redux";
 
 // Function that takes csv data as an input an convert it into a json data
@@ -51,19 +50,18 @@ const buildHierarchy = (csv) => {
 const SunBurstChartWrapper = (props) => {
   const chartArea = useRef(null);
   const [chart, setChart] = useState(null);
-  let url = "https://dashboard-8836f.firebaseio.com/data.jsonmnmnm";
+  let url = "https://dashboard-8836f.firebaseio.com/data.jsonbb";
 
   const [data, setData] = useState([]);
+
+  const clickHandler = () => {};
 
   useEffect(() => {
     Axios.get(url)
       .then((data) => {
-        // console.log(data.data);
-
         return SunBurstUtility(data.data);
       })
       .then((finalData) => {
-        console.log(finalData);
         return finalData.map((d) => {
           return [d.path, d.ratio];
         });
@@ -76,29 +74,22 @@ const SunBurstChartWrapper = (props) => {
         console.log("error found:", err);
         json("dummydata.json")
           .then((data) => {
+            console.log("Original Data", data);
+            console.log("Data Received", props.dataReceived);
+            console.log(SunBurstUtility([]));
             return SunBurstUtility(data);
           })
           .then((finalData) => {
-            console.log(finalData);
             return finalData.map((d) => {
               return [d.path, d.ratio];
             });
           })
           .then((data) => {
-            var json = buildHierarchy(data);
-
+            let json = buildHierarchy(data);
             setData(json);
           });
       });
   }, [url]);
-
-  // useEffect(() => {
-  //   const data = SunBurstUtility(props.dataReceived);
-  //   const finalData = data.map((d) => {
-  //     return [d.path, d.ratio];
-  //   });
-  //   buildHierarchy(finalData);
-  // }, [props.dataReceived]);
 
   useEffect(() => {
     if (!chart) {
@@ -120,6 +111,7 @@ const SunBurstChartWrapper = (props) => {
           of visits begin with this sequence of pages
         </div>
       </div>
+      <button onClick={clickHandler}>click</button>
     </div>
   );
 };
@@ -127,6 +119,7 @@ const SunBurstChartWrapper = (props) => {
 const mapStateToProps = (state) => {
   return {
     dataReceived: state.data,
+    urlParams: state.url,
   };
 };
 
