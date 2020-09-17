@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from "react";
 import D3PieChart from "./D3PieChart";
 // import "./PieChart.styles.scss";
 import Axios from "axios";
-import { json } from 'd3';
+import { json } from "d3";
 import { pieUtility } from "./Utility";
 import { connect } from "react-redux";
 
@@ -11,7 +11,6 @@ const PieChartWrapper = (props) => {
   const [chart, setChart] = useState(null);
   const [data, setData] = useState([]);
   // let url = "https://dashboard-8836f.firebaseio.com/data.jsonnnn"; //https://dashboard-8836f.firebaseio.com/data.json
-
 
   // useEffect(() => {
   //   Axios.get(url)
@@ -33,11 +32,10 @@ const PieChartWrapper = (props) => {
   // }, [props.reducerData, url]);
 
   useEffect(() => {
-    console.log("params:", props.urlParams)
-    setData(pieUtility(props.dataReceived)); 
-  }, [props.dataReceived, props.urlParams])
-
-
+    console.log("params:", props.urlParams);
+    console.log("pie utility", pieUtility(props.dataReceived));
+    setData(pieUtility(props.dataReceived));
+  }, [props.dataReceived, props.urlParams]);
 
   useEffect(() => {
     if (!chart) {
@@ -67,12 +65,11 @@ const PieChartWrapper = (props) => {
   return <div ref={chartArea}></div>;
 };
 
-
 const mapStateToProps = (state) => {
   return {
     dataReceived: state.data,
-    urlParams: state.url
-  }
-}
+    urlParams: state.url,
+  };
+};
 
 export default connect(mapStateToProps)(PieChartWrapper);

@@ -45,12 +45,13 @@ function App(props) {
       {/* <div className="pie-pos">
         <PieChart />
       </div> */}
-      {/* <div className="stackbar-pos">
+      <div className="stackbar-pos">
         <StackBarChart />
-      </div> */}
-      <div className="sunburst-pos">
-        <Sunburst />
       </div>
+      {/* <div className="sunburst-pos">
+        <Sunburst />
+      </div> */}
+      {/* <StackBarChartUpdated width={450} height={315} /> */}
     </div>
   );
 }

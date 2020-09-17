@@ -80,12 +80,15 @@ const SunBurstChartWrapper = (props) => {
             return SunBurstUtility(data);
           })
           .then((finalData) => {
+            console.log("FINALDATA:", finalData);
             return finalData.map((d) => {
               return [d.path, d.ratio];
             });
           })
           .then((data) => {
+            console.log("DDTT", data);
             let json = buildHierarchy(data);
+            console.log("BUILFH", json);
             setData(json);
           });
       });

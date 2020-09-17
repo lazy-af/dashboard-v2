@@ -9,41 +9,20 @@ const StackBarChartWrapper = (props) => {
   const chartArea = useRef(null);
   const [chart, setChart] = useState(null);
   const [data, setData] = useState([]);
-  // let url = 'https://dashboard-8836f.firebaseio.com/data.json';
-
-  // useEffect(() => {
-  //     Axios.get(url).then(response => {
-  //         return response.data;
-  //     }).then(data => {
-  //         const allCapablities = data.map(d => d.capabilities);
-  //         const capability = allCapablities.filter((d, i) => allCapablities.indexOf(d) === i);
-  //         stackBarUtility1(data);
-  //         console.log("stackutil1:", stackBarUtility1(data));
-  //         return stackBarUtility2(capability);
-  //     }).then(finalData => {
-  //         setData(finalData);
-  //     }).catch(err => {
-  //         console.log("error Found:", err);
-  //         json("dummydata.json").then(data => {
-  //             const allCapablities = data.map(d => d.capabilities);
-  //             const capability = allCapablities.filter((d, i) => allCapablities.indexOf(d) === i);
-  //             stackBarUtility1(data);
-  //             return stackBarUtility2(capability);
-  //         }).then(finalData => {
-  //             console.log(finalData);
-  //             setData(finalData);
-  //         })
-  //     })
-  // }, [url])
 
   useEffect(() => {
     const allCapablities = props.dataReceived.map((d) => d.capabilities);
     const capability = allCapablities.filter(
       (d, i) => allCapablities.indexOf(d) === i
     );
+    console.log("STKUTIL1", stackBarUtility1(props.dataReceived));
     stackBarUtility1(props.dataReceived);
     const finalData = stackBarUtility2(capability);
+    console.log("FINAL", finalData);
     setData(finalData);
+    return () => {
+      document.querySelectorAll(".clss").forEach((e) => e.remove());
+    };
   }, [props.dataReceived]);
 
   useEffect(() => {
@@ -60,6 +39,7 @@ const StackBarChartWrapper = (props) => {
         )
       );
     } else {
+      console.log("DTTT:", data);
       chart.update(data);
     }
   }, [
